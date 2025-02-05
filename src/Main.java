@@ -43,12 +43,10 @@ public class Main {
         for (Funcionario funcionario : funcionarios) {
             BigDecimal novoSalario = funcionario.getSalario().multiply(new BigDecimal("1.10"));
             funcionario.setSalario(novoSalario);
+            System.out.println("Nome: " + funcionario.getNome() + ", Novo Salário: " + funcionario.getSalario());
         }
 
-        System.out.println("\n=========================================");
-        System.out.println("3.5 – Imprimir grupo agrupado por função");
-        System.out.println("=========================================\n");
-
+        // 3.5 – Agrupar por função
         Map<String, List<Funcionario>> funcionariosPorFuncao = funcionarios.stream()
                 .collect(Collectors.groupingBy(Funcionario::getFuncao));
 
